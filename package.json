@@ -1,0 +1,27 @@
+{
+  "name": "gt-meal-planner",
+  "version": "1.0.0",
+  "description": "Backend for GT Meal Planner",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gary-peng/gt-meal-planner.git"
+  },
+  "author": "Gary Peng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gary-peng/gt-meal-planner/issues"
+  },
+  "homepage": "https://github.com/gary-peng/gt-meal-planner#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.5",
+    "colors": "^1.4.0",
+    "request": "^2.88.2"
+  }
+}
