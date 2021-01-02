@@ -4,7 +4,8 @@
   "description": "Backend for GT Meal Planner",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server",
+    "server": "nodemon server"
   },
   "repository": {
     "type": "git",
@@ -17,11 +18,15 @@
   },
   "homepage": "https://github.com/gary-peng/gt-meal-planner#readme",
   "devDependencies": {
+    "concurrently": "^5.3.0",
     "nodemon": "^2.0.6"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.5",
     "colors": "^1.4.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
     "request": "^2.88.2"
   }
 }
