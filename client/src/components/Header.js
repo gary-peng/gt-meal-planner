@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { Component } from 'react';
 
-export const Header = () => {
-    return (
-        <h2>
-            Gerogia Tech Meal Planner
-        </h2>
-    )
+class Header extends Component {
+    render() {
+        return (
+            <h1>
+                Gerogia Tech Meal Planner
+            </h1>
+        );
+    }
 }
+
+export default Header;

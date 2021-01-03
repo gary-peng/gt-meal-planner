@@ -7,8 +7,8 @@ dotenv.config({ path: './config/config.env'});
 
 const app = express();
 app.use(morgan('combined'));
-app.use('/api/v1/menu', require('./routes/menu'))
+app.use('/api/menu', require('./routes/menu'))
 
 const PORT = process.env.PORT;
 app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV}
- mode on port ${PORT}`.yellow.bold));
+ mode on port ${PORT}`.blue.bold));
