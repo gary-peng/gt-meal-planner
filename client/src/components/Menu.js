@@ -1,25 +1,52 @@
-import React, { Component } from 'react';
+import React, { useState, useContext, useEffect } from 'react'
 import MenuItem from './MenuItem';
+import { RestrictContext } from '../context/GlobalContext'
 
-class Menu extends Component {
-    constructor() {
-        super();
-        this.state = {
-            menu: []
-        }
-    }
+function Menu() {
+    const { restrict, setRestrict } = useContext(RestrictContext);
 
-    componentDidMount() {
+    const [menu, setMenu] = useState([]);
+
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    useEffect(() => {
         fetch('/api/menu/nav')
-            .then(res => res.json())
-            .then(menu => this.setState({menu}, () => console.log('Menu fetched', menu)));
+        .then(res => res.json())
+        .then(
+            (result) => {
+                setIsLoaded(true);
+                setMenu(result);
+            },
+            (error) => {
+                setIsLoaded(true);
+                setError(error);
+            }
+        )
+    }, []);
+
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+        return <div>Loading...</div>;
     }
 
-    render() {
-        return this.state.menu.map(item =>
-            <MenuItem item={item} />
-        );
-    }
+    return (
+        <div>
+            { menu.map((item) => {
+                var found = false;
+                restrict.forEach((val) => {
+                    if (item.restrictions.includes(val)) {
+                        found = true;
+                    }
+                });
+
+                if (!found) {
+                    return (<MenuItem item={item} />);
+                }
+            }) }
+        </div>
+    );
 }
 
 export default Menu;

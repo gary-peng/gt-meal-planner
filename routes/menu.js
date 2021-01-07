@@ -1,13 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const menuController = require('../controllers/menu-controller')
+const { getMenu } = require('../controllers/menu-controller')
 
-router.route('/nav').get((req, res) => {
-    menuController.getMenu(req, res, 'NorthAve');
-});
+const dummyData = [
+    {
+        name: "rice",
+        calorie: 69,
+        restrictions: ['locallygrown']
+    },
+    {
+        name: "chicken",
+        calorie: 420,
+        restrictions: ['vegan', 'vegetarian']
+    }
+];
 
-router.route('/brittain').get((req, res) => {
-    menuController.getMenu(req, res, 'Brittain');
-});
+// router.route('/nav').get((req, res) => getMenu(req, res, 'NorthAve'));
+router.route('/nav').get((req, res) => res.json(dummyData));
+
+router.route('/brittain').get((req, res) => getMenu(req, res, 'Brittain'));
 
 module.exports = router;
