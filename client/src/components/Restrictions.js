@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext } from 'react';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import { RestrictContext } from "../context/GlobalContext";
@@ -11,9 +11,20 @@ function Restrictions() {
     const restrictions = ['eggs', 'fish', 'milk', 'peanuts', 'shellfish', 'soy', 'treenuts', 'wheat', 'gluten', 'halal', 'kosher', 'locallygrown', 'organic', 'vegan', 'vegetarian'];
 
     return (
-        <div>
-            <ToggleButtonGroup type='checkbox' value={restrict} onChange={handleChange}>
-                { restrictions.map((restriction) => <ToggleButton value={restriction}>{ restriction }</ToggleButton>) }
+        <div className='mb-3'>
+            <ToggleButtonGroup className='flex-wrap' type='checkbox' value={restrict} onChange={handleChange}>
+                { restrictions.map((restriction, i) => {
+                    if (i <= 8) {
+                        return <ToggleButton className='rounded-0 shadow-none white-btn' value={restriction}>{ restriction }</ToggleButton>;
+                    }
+                }) }
+            </ToggleButtonGroup>
+            <ToggleButtonGroup className='flex-wrap' type='checkbox' value={restrict} onChange={handleChange}>
+                { restrictions.map((restriction, i) => {
+                    if (i > 8) {
+                        return <ToggleButton className='rounded-0 shadow-none white-btn' value={restriction}>{ restriction }</ToggleButton>;
+                    }
+                }) }
             </ToggleButtonGroup>
         </div>
     );

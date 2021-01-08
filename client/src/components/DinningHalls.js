@@ -1,18 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
+import { DinnHallContext } from '../context/GlobalContext'
 
 function DinningHalls() {
-    const [dh, setDh] = useState('nav');
+    const {dinnHall, setDinnHall} = useContext(DinnHallContext);
 
-    const handleChange = (val) => setDh(val);
+    const handleChange = (val) => setDinnHall(val);
 
     const dinningHalls = ['nav', 'brittain'];
 
     return (
-        <div>
-            <ToggleButtonGroup type='radio' name="dinningHallOptions" value={dh} onChange={handleChange}>
-                { dinningHalls.map((dinningHall) => <ToggleButton value={dinningHall}>{ dinningHall }</ToggleButton>) }
+        <div className='mb-2'>
+            <ToggleButtonGroup type='radio' name="dinningHallOptions" value={dinnHall} onChange={handleChange}>
+                { dinningHalls.map((dinningHall) => <ToggleButton className='rounded-0 shadow-none white-btn' value={dinningHall}>{ dinningHall }</ToggleButton>) }
             </ToggleButtonGroup>
         </div>
     );

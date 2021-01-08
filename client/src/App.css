@@ -1,0 +1,23 @@
+html, body {
+    background-color: #fdd982;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.white-btn,
+.white-btn.focus,
+.white-btn:focus {
+    background-color: white;
+    border-style: none;
+    color: black;
+}
+
+.white-btn:hover,
+.white-btn.active.focus,
+.white-btn.active:focus,
+.white-btn.active:hover,
+.white-btn:active.focus,
+.white-btn:active:focus,
+.white-btn:active:hover,
+.white-btn:not(:disabled):not(.disabled).active {
+    background-color: black !important;
+}

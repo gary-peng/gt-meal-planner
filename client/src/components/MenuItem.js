@@ -1,9 +1,9 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import { CalorieContext } from '../context/GlobalContext';
 
 function MenuItem({ item }) {
-    const { calorire, setCalorie } = useContext(CalorieContext);
+    const { calorie, setCalorie } = useContext(CalorieContext);
 
     const [serv, setServ] = useState(0);
 
@@ -19,13 +19,19 @@ function MenuItem({ item }) {
         }
     };
 
+    useEffect(() => {
+        if (calorie == 0) {
+            setServ(0);
+        }
+    }, [calorie]);
+
     return (
         <div>
             <p>
-                { item.name } ({ item.calorie } calories)
-                <Button variant='danger' onClick={dec}>-</Button>
+                { item.name } ({ item.calorie } calories)         
+                <Button className='ml-2 mr-2 shadow-none white-btn' onClick={dec}>-</Button>
                 { serv }
-                <Button variant='success' onClick={inc}>+</Button>
+                <Button className='ml-2 mr-2 shadow-none white-btn' onClick={inc}>+</Button>
             </p>
         </div>
     );

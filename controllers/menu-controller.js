@@ -4,7 +4,7 @@ const cheerio = require('cheerio');
 const service = 'https://georgiatech.campusdish.com/LocationsAndMenus';
 const query = '?mode=Daily&date=1%2F25%2F2021&periodId=3663';
 
-exports.getMenu = (req, res, diningHall) => {
+function getMenu(req, res, diningHall) {
     const menu = [];
     const url = service + '/' + diningHall + 'DiningHall' + query;
 
@@ -53,3 +53,5 @@ exports.getMenu = (req, res, diningHall) => {
         }
     });
 }
+
+module.exports = getMenu;
