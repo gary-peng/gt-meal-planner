@@ -12,6 +12,8 @@ html, body {
 }
 
 .white-btn:hover,
+.white-btn.active,
+.white-btn:active,
 .white-btn.active.focus,
 .white-btn.active:focus,
 .white-btn.active:hover,
