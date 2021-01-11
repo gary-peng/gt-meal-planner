@@ -7,20 +7,20 @@ function MenuItem({ item }) {
 
     const [serv, setServ] = useState(0);
 
-    const inc = () => {
+    function inc() {
         setServ((prev) => prev + 1);
         setCalorie((prev) => prev + item.calorie);
     };
 
-    const dec = () => {
-        if (serv != 0) {
+    function dec() {
+        if (serv !== 0) {
             setServ((prev) => prev - 1);
             setCalorie((prev) => prev - item.calorie);
         }
     };
 
     useEffect(() => {
-        if (calorie == 0) {
+        if (calorie === 0) {
             setServ(0);
         }
     }, [calorie]);
