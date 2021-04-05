@@ -1,8 +1,10 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const getMenu = require('../controllers/menu-controller')
+const getMenu = require("./menu-controller");
 
-router.route('/nav').get((req, res) => getMenu(req, res, 'NorthAve'));
-router.route('/brittain').get((req, res) => getMenu(req, res, 'Brittain'));
+router.route("/nav/breakfast").get((req, res) => getMenu(req, res, "breakfast"));
+router.route("/nav/lunch").get((req, res) => getMenu(req, res, "lunch"));
+router.route("/nav/dinner").get((req, res) => getMenu(req, res, "dinner"));
+// router.route("/brittain").get((req, res) => getMenu(req, res, "Brittain"));
 
 module.exports = router;

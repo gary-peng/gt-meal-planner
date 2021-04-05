@@ -1,25 +1,70 @@
 html, body {
     background-color: #fdd982;
-    font-family: 'Varela Round', sans-serif;
+    font-family: "Varela Round", sans-serif;
 }
 
-.white-btn,
-.white-btn.focus,
-.white-btn:focus {
+.bg-yellow {
+    background-color: #fdd982;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.btn-white,
+.btn-white.focus,
+.btn-white:focus {
     background-color: white;
     border-style: none;
     color: black;
 }
 
-.white-btn:hover,
-.white-btn.active,
-.white-btn:active,
-.white-btn.active.focus,
-.white-btn.active:focus,
-.white-btn.active:hover,
-.white-btn:active.focus,
-.white-btn:active:focus,
-.white-btn:active:hover,
-.white-btn:not(:disabled):not(.disabled).active {
+.btn-white:hover,
+.btn-white.active,
+.btn-white:active,
+.btn-white.active.focus,
+.btn-white.active:focus,
+.btn-white.active:hover,
+.btn-white:active.focus,
+.btn-white:active:focus,
+.btn-white:active:hover,
+.btn-white:not(:disabled):not(.disabled).active {
     background-color: black !important;
+}
+
+.btn-black,
+.btn-black.focus,
+.btn-black:focus {
+    background-color: black;
+    border-style: none;
+    color: white;
+}
+
+.btn-black:hover,
+.btn-black.active,
+.btn-black:active,
+.btn-black.active.focus,
+.btn-black.active:focus,
+.btn-black.active:hover,
+.btn-black:active.focus,
+.btn-black:active:focus,
+.btn-black:active:hover,
+.btn-black:not(:disabled):not(.disabled).active {
+    background-color: white !important;
+    color: black;
+}
+
+.yellow-border {
+    border:4px solid #fdd982;
+    background-color: white;
+}
+
+.yellow-border > thead > tr > th{
+    border:4px solid #fdd982;
+    background-color: white;
+}
+
+.yellow-border > tbody > tr > td{
+    border:4px solid #fdd982;
+    background-color: white;
 }

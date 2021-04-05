@@ -1,5 +1,4 @@
-import { createContext } from 'react';
+import { createContext } from "react";
 
 export const RestrictContext = createContext();
-export const CalorieContext = createContext();
 export const DinnHallContext = createContext();

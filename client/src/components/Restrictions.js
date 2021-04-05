@@ -1,33 +1,38 @@
-import React, { useState, useContext } from 'react';
-import ToggleButton from 'react-bootstrap/ToggleButton';
-import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
-import { RestrictContext } from "../context/GlobalContext";
+import React, { useState, useContext } from "react";
+import {ToggleButton, ToggleButtonGroup} from "react-bootstrap";
+import {RestrictContext} from "../context/GlobalContext";
 
-function Restrictions() {
-    const { restrict, setRestrict } = useContext(RestrictContext);
+export default function Restrictions() {
+    const {restrict, setRestrict} = useContext(RestrictContext);
 
     const handleChange = (val) => setRestrict(val);
 
-    const restrictions = ['eggs', 'fish', 'milk', 'peanuts', 'shellfish', 'soy', 'treenuts', 'wheat', 'gluten', 'halal', 'kosher', 'locallygrown', 'organic', 'vegan', 'vegetarian'];
+    const restrictions = ["eggs", "fish", "milk", "peanuts", "shellfish", "soy", "treenuts", "wheat", "gluten", "halal", "kosher", "locallygrown", "organic", "vegan", "vegetarian"];
+
+    const allergies = [];
+    restrictions.forEach((el, i) => {
+        if (i <= 8) {
+            allergies.push(<ToggleButton className="rounded-0 shadow-none btn-white" value={el}>{el}</ToggleButton>);
+        }
+    });
+
+    const diet = [];
+    restrictions.forEach((el, i) => {
+        if (i > 8) {
+            diet.push(<ToggleButton className="rounded-0 shadow-none btn-white" value={el}>{el}</ToggleButton>);
+        }
+    });
 
     return (
-        <div className='mb-3'>
-            <ToggleButtonGroup className='flex-wrap' type='checkbox' value={restrict} onChange={handleChange}>
-                { restrictions.map((restriction, i) => {
-                    if (i <= 8) {
-                        return <ToggleButton className='rounded-0 shadow-none white-btn' value={restriction}>{ restriction }</ToggleButton>;
-                    }
-                }) }
+        <div className="mt-3">
+            <h6 className="font-weight-bold">Allergies</h6>
+            <ToggleButtonGroup className="flex-wrap" type="checkbox" value={restrict} onChange={handleChange}>
+                {allergies}
             </ToggleButtonGroup>
-            <ToggleButtonGroup className='flex-wrap' type='checkbox' value={restrict} onChange={handleChange}>
-                { restrictions.map((restriction, i) => {
-                    if (i > 8) {
-                        return <ToggleButton className='rounded-0 shadow-none white-btn' value={restriction}>{ restriction }</ToggleButton>;
-                    }
-                }) }
+            <h6 className="mt-3 font-weight-bold">Dietary Preferance</h6>
+            <ToggleButtonGroup className="flex-wrap" type="checkbox" value={restrict} onChange={handleChange}>
+                {diet}
             </ToggleButtonGroup>
         </div>
     );
 }
-
-export default Restrictions;
