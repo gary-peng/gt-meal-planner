@@ -1,4 +1,4 @@
 import { createContext } from "react";
 
 export const RestrictContext = createContext();
-export const DinnHallContext = createContext();
+export const DinHallContext = createContext();

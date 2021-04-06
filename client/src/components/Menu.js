@@ -1,17 +1,17 @@
 import React, {useState, useContext, useEffect} from "react";
 import {Modal, ToggleButton, ToggleButtonGroup, Badge} from "react-bootstrap";
-import {RestrictContext, DinnHallContext} from "../context/GlobalContext"
+import {RestrictContext, DinHallContext} from "../context/GlobalContext"
 
 export default function Menu(prop) {
     const {restrict, setRestrict} = useContext(RestrictContext);
-    const {dinnHall, setDinnHall} = useContext(DinnHallContext);
+    const {dinHall, setDinHall} = useContext(DinHallContext);
     
     const [menu, setMenu] = useState([]);
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        fetch("/api/menu/" + dinnHall + "/" + prop.meal)
+        fetch("/api/menu/" + dinHall + "/" + prop.meal)
         .then(res => res.json())
         .then(
             (result) => {
@@ -23,7 +23,7 @@ export default function Menu(prop) {
                 setError(error);
             }
         );
-    }, [dinnHall]);
+    }, [dinHall]);
 
     if (error) {
         return <div>Error: {error.message}</div>;

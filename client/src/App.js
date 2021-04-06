@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 import Restrictions from "./components/Restrictions";
-import DinningHalls from "./components/DinningHalls";
+import DiningHalls from "./components/DiningHalls";
 import Calendar from "./components/Calendar"
-import { RestrictContext, DinnHallContext } from "./context/GlobalContext";
+import {RestrictContext, DinHallContext} from "./context/GlobalContext";
 
 import "./App.css";
 
 function App() {
     const [restrict, setRestrict] = useState([]);
-    const [dinnHall, setDinnHall] = useState("nav");
+    const [dinHall, setDinHall] = useState("nav");
 
     return (
         <div className="container">
             <h1 className="mt-5">Gerogia Tech Meal Planner</h1>
             <RestrictContext.Provider value={{restrict, setRestrict}}>
-                <DinnHallContext.Provider value={{dinnHall, setDinnHall}}>
-                    <DinningHalls />
+                <DinHallContext.Provider value={{dinHall, setDinHall}}>
+                    <DiningHalls />
                     <Restrictions />
                     <Calendar />
-                </DinnHallContext.Provider>
+                </DinHallContext.Provider>
             </RestrictContext.Provider>
         </div>
     );
