@@ -13,7 +13,7 @@ function fetchAllMenu() {
             });
         })
         .catch((err) => {
-            console.err(err);
+            console.log(err);
         });
 
     fetchMenu(3663)
@@ -26,7 +26,7 @@ function fetchAllMenu() {
             });
         })
         .catch((err) => {
-            console.err(err);
+            console.log(err);
         });
 
     fetchMenu(3664)
@@ -39,7 +39,7 @@ function fetchAllMenu() {
             });
         })
         .catch((err) => {
-            console.err(err);
+            console.log(err);
         });
 }
 
