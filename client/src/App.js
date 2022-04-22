@@ -12,7 +12,7 @@ function App() {
 
     return (
         <div className="container">
-            <h1 className="mt-5">Gerogia Tech Meal Planner</h1>
+            <h1 className="mt-5">Georgia Tech Meal Planner</h1>
             <RestrictContext.Provider value={{restrict, setRestrict}}>
                 <DinHallContext.Provider value={{dinHall, setDinHall}}>
                     <DiningHalls />
